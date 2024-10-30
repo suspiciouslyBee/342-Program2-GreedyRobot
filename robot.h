@@ -12,6 +12,7 @@
 #ifndef ROBOT_H_
 #define ROBOT_H_
 
+#include <cstdlib>
 #include <string>
 #include <vector>
 
@@ -31,8 +32,13 @@ namespace GreedyRobot {
     //Function returns a vector list of paths meeting shortest distance. User
     //shall keep retain a copy if needed, can count vector elements for number
     //of valid paths
-    std::vector<std::string> GeneratePaths(Point &dest, Point curr, Point combo,
-                                 std::string path);
+    std::vector<std::string> GeneratePaths(const Point &dest, Point curr, 
+                                           Point combo, std::string path);
+    int MaxDistance() const;
+    void SetMaxDistance(const int &maxDistance);
+
+    Point Origin() const;
+    void SetOrigin(const Point &origin);
   private:
 
     Point origin_;

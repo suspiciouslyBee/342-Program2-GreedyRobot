@@ -59,5 +59,19 @@ namespace GreedyRobot {
   void Point::operator+=(const Point &rhs) {
     *this = *this + rhs;
   }
-  
+
+  bool Point::IsInDirection(Direction entry) {
+    switch(entry) {
+    case NORTH:
+      return y_ > 0;
+    case EAST:
+      return x_ > 0;
+    case SOUTH:
+      return y_ < 0;
+    case WEST:
+      return x_ < 0;
+    default:
+      return false;
+    }
+  }
 }

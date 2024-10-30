@@ -12,6 +12,14 @@
 #define POINT_H_
 
 namespace GreedyRobot {
+
+  typedef enum Direction {
+    NORTH,
+    EAST,
+    SOUTH,
+    WEST
+  };
+
   class Point {
   public:
     
@@ -34,7 +42,7 @@ namespace GreedyRobot {
     void operator-=(const Point &rhs);
     void operator+=(const Point &rhs);
 
-    
+    bool IsInDirection(Direction entry);
 
     int x_;
     int y_;
