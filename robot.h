@@ -46,4 +46,4 @@ namespace GreedyRobot {
   };
 }
 
-#endif ROBOT_H_
+#endif //ROBOT_H_

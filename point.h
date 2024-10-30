@@ -13,7 +13,7 @@
 
 namespace GreedyRobot {
 
-  typedef enum Direction {
+  enum Direction {
     NORTH,
     EAST,
     SOUTH,
@@ -49,4 +49,4 @@ namespace GreedyRobot {
   };
 }
 
-#endif POINT_H_
+#endif //POINT_H_

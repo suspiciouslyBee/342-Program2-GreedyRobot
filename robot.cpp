@@ -9,8 +9,8 @@
 namespace GreedyRobot {
   
   Robot::Robot() {
-    origin.SetPoint(0,0);
-    maxDistance = 0;
+    origin_.SetPoint(0,0);
+    maxDistance_ = 0;
   }
 
   Robot::Robot(const Point &origin, const int &maxDistance) {
@@ -24,8 +24,8 @@ namespace GreedyRobot {
   }
 
   Robot::~Robot() {
-    origin.SetPoint(0,0);
-    maxDistance = 0;
+    origin_.SetPoint(0,0);
+    maxDistance_ = 0;
   }
 
 
@@ -41,7 +41,7 @@ namespace GreedyRobot {
     return origin_;
   }
 
-  Point Robot::SetOrigin(const Point &origin) {
+  void Robot::SetOrigin(const Point &origin) {
     origin_ = origin;
   }
 
@@ -53,7 +53,7 @@ namespace GreedyRobot {
 
     //Robot is on the point
     if(curr == dest) { 
-      paths.push_back(paths);
+      paths.push_back(path);
       return paths;
     }
     

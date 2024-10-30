@@ -20,5 +20,5 @@ clean :
 	rm *.o *.c greedy_robot
 
 %.o: %.cpp
-	$(CC) $(CXXFLAGS) -c $^ -o $@
+	$(CXX) $(CXXFLAGS) -c $^ -o $@
 

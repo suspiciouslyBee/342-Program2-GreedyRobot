@@ -20,10 +20,10 @@ namespace GreedyRobot {
   }
 
   Point::~Point() {
-    this.Point();
+    SetPoint(0,0);
   }
 
-  void SetPoint(const int &x, const int &y) {
+  void Point::SetPoint(const int &x, const int &y) {
     x_ = x;
     y_ = y;
   }
@@ -49,7 +49,7 @@ namespace GreedyRobot {
   }
 
   void Point::operator=(const Point &rhs) {
-    setPoint(x_, y_);
+    SetPoint(x_, y_);
   }
 
   void Point::operator-=(const Point &rhs) {

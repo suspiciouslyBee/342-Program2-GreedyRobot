@@ -39,8 +39,8 @@ int main(int argc, char *argv[]) {
   answer = robot.GeneratePaths(treasure, zeroTemplate, zeroTemplate, "");
   
   for(int i = 0; i < answer.size(); i++) {
-    std::cout << answer.at(i) << endl;
+    std::cout << answer.at(i) << std::endl;
   }
-  std::cout << "Number of paths: " << answer.size() << endl;
+  std::cout << "Number of paths: " << answer.size() << std::endl;
   return 0;
 }
