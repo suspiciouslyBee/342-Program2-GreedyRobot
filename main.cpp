@@ -5,9 +5,21 @@
 //
 //  Class: 342
 //
-//  Description: Interfaces Robot to a CLI interface. 
+//  Description: Interfaces Robot to a CLI interface. Supports a grid up to one
+//  billion in each cardinal direction, where each space is each integer. Prints
+//  all shortest direct paths to destination and number of paths.
 //
-//  INPUT: max_distance, robot_x, robot_y, treasure_x, treasure_y
+//
+//  Args:
+//  `max_distance`  : Max distance in one direction robot can travel
+//  `robot_x`       : Robot starting x pos
+//  `robot_y`       : Robot starting y pos
+//  `treasure_x`    : Treasure x pos
+//  `treasure_y`    : Treasure y pos
+//
+//  Returns:
+//    0 : Normal function
+//    1 : Point under/overflow (via Point)
 ////
 
 #include <iostream>
@@ -21,13 +33,13 @@
 int main(int argc, char *argv[]) {
 
   std::stringstream parser;
-  int array[6] = {0};
+  int array[5] = {0};
 
 
   for(int i = 1; i < 6; i++){ 
     parser << argv[i];
     parser >> array[i];
-    parser.str("");
+    parser.str(""); //Reset sstream for next var
     parser.clear();
   }
 

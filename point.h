@@ -5,7 +5,9 @@
 //  
 //  Class: 342
 //
-//  Description: Basic point class with primatives.
+//  Description: Basic point class with primatives. Supports up to 1 billion in
+//  Any cardinal direction. Defines cardinal directions within GreedyRobot 
+//  namespace
 ////
 
 #ifndef POINT_H_
@@ -48,8 +50,10 @@ namespace GreedyRobot {
     void operator+=(const Point &rhs);
 
     bool IsInDirection(const Direction entry) const;
+    //Checked every SetPoint call
     bool ExceededLimit() const;
 
+    //Kept public due to being essentially an overgrown struct
     int x_;
     int y_;
   };

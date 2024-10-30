@@ -30,7 +30,8 @@ namespace GreedyRobot {
     
     x_ = x;
     y_ = y;
-
+    
+    //Bail if past artificial limits
     if(ExceededLimit()) {
       std::cout << "POINT OVERFLOW/UNDERFLOW" << std::endl;
       exit(1);
@@ -69,7 +70,10 @@ namespace GreedyRobot {
     *this = *this + rhs;
   }
 
-  //Checks the direction from 0,0 with the specified args
+  //  Checks the direction from 0,0 with the specified args
+  // 
+  //  Example:
+  //    Point with (2,3) would return true when `entry` is NORTH or EAST
   bool Point::IsInDirection(Direction entry) const{
     switch(entry) {
     case NORTH:
@@ -85,8 +89,8 @@ namespace GreedyRobot {
     }
   }
   
-  //If beyond 1 billion, return true. Higher context decided what to do next
+  //If beyond 1 billion in any direction, return true.
   bool Point::ExceededLimit() const {
-    return abs(x_) > 1000000001 || abs(y_) > 1000000001;
+    return abs(x_) > 1000000000 || abs(y_) > 1000000000;
   }
 }

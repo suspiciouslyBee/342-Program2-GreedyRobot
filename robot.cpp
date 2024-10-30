@@ -47,6 +47,22 @@ namespace GreedyRobot {
     origin_ = origin;
   }
 
+
+  // Generates/returns a vector of strings containing each valid path to `dest`.
+  // Keeps track of max distance when travelling from one "recurse" to the next
+  // via `combo`. Adds iteration's copy of `path` to vector when `curr` matches
+  // `combo` with a non-empty string. Uses a greedy algorithm that checks each
+  // cardinal direction in the order of N, E, W, S for a decrease in distance.
+  //
+  // Args:
+  // `curr` : current iteration's location
+  // `combo`: current iteration's trajectory
+  // `dest` : destination (passed by ref, not edited)
+  // `path` : directions from robot's initial start value to `curr` in a string
+  //          format where each char is a step in a cardinal direction
+  // Returns:
+  //  paths : list of sucessful `path`s. Static to allow all recurses to push
+  //          valid paths to a single location.
   std::vector<std::string> Robot::GeneratePaths(const Point &dest, Point curr,
                                          Point combo, std::string path) {
      
@@ -67,7 +83,7 @@ namespace GreedyRobot {
     Direction cardinal = NORTH;
     
     //Test each cardinal direction for progress
-    //Loop could be used, but would make this less clear
+    //Loop could be used, but would make this less understandable
     //Only the first iteration is annotated to keep this readable
 
     //North : Positive Y
@@ -84,8 +100,8 @@ namespace GreedyRobot {
         combo.SetPoint(0,0);  //Reset for next recurse
       }
       
-      //"Moves" to valid spot, gets spot and trajectory combo copied by pass by 
-      //value into recurse then resets  
+      //"Moves" to valid spot, gets spot and trajectory combo copied via pass by 
+      //value into recurse. After which reloads/retreats to previous state
       curr.y_++;
       combo.y_++;
       GeneratePaths(dest, curr, combo, path + "N"); 
@@ -146,7 +162,7 @@ namespace GreedyRobot {
       combo = working;
       curr.x_++;
     }
-    //Every direction is exhausted. Give up. Go back
+    //Every direction is exhausted. Give up. Go back a level.
     return paths;
   }
 
