@@ -1,5 +1,10 @@
 //// Stub header: Point implementation
 
+#include <stdlib.h>
+
+#include <cstdlib>
+#include <iostream>
+
 #include "point.h"
 
 namespace GreedyRobot {
@@ -10,13 +15,11 @@ namespace GreedyRobot {
   }
 
   Point::Point(const int &x, const int &y) {
-    x_ = x;
-    y_ = y;
+    SetPoint(x, y);
   }
 
   Point::Point(const Point &rhs) {
-    x_ = rhs.x_;
-    y_ = rhs.y_;
+    SetPoint(rhs.x_, rhs.y_);
   }
 
   Point::~Point() {
@@ -24,8 +27,14 @@ namespace GreedyRobot {
   }
 
   void Point::SetPoint(const int &x, const int &y) {
+    
     x_ = x;
     y_ = y;
+
+    if(ExceededLimit()) {
+      std::cout << "POINT OVERFLOW/UNDERFLOW" << std::endl;
+      exit(1);
+    }
   }
 
   bool Point::operator==(const Point &rhs) const {
@@ -60,7 +69,8 @@ namespace GreedyRobot {
     *this = *this + rhs;
   }
 
-  bool Point::IsInDirection(Direction entry) {
+  //Checks the direction from 0,0 with the specified args
+  bool Point::IsInDirection(Direction entry) const{
     switch(entry) {
     case NORTH:
       return y_ > 0;
@@ -73,5 +83,10 @@ namespace GreedyRobot {
     default:
       return false;
     }
+  }
+  
+  //If beyond 1 billion, return true. Higher context decided what to do next
+  bool Point::ExceededLimit() const {
+    return abs(x_) > 1000000001 || abs(y_) > 1000000001;
   }
 }

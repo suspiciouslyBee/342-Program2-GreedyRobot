@@ -11,6 +11,11 @@
 #ifndef POINT_H_
 #define POINT_H_
 
+#include <stdlib.h>
+
+#include <cstdlib>
+#include <iostream>
+
 namespace GreedyRobot {
 
   enum Direction {
@@ -42,7 +47,8 @@ namespace GreedyRobot {
     void operator-=(const Point &rhs);
     void operator+=(const Point &rhs);
 
-    bool IsInDirection(Direction entry);
+    bool IsInDirection(const Direction entry) const;
+    bool ExceededLimit() const;
 
     int x_;
     int y_;

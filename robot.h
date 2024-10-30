@@ -7,6 +7,9 @@
 //
 //  Description: Robot class that represents position. Has a recursive method
 //  for moving to a point in the shortest path.
+//  Limit for Gernerate Paths int arguments up to one billion.
+//  
+//  Force exits main, returns 1, if point data exceeds one billon.
 ////
 
 #ifndef ROBOT_H_
@@ -15,6 +18,7 @@
 #include <cstdlib>
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include "point.h"
 

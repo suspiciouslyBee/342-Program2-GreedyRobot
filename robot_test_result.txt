@@ -1,0 +1,54 @@
+Compile Testing (Not Scored)
+rm *.o *.c greedy_robot
+g++  -c point.cpp -o point.o
+g++  -c robot.cpp -o robot.o
+g++  -c main.cpp -o main.o
+g++  point.o robot.o main.o -o greedy_robot
+chmod +x greedy_robot
+Bounds Testing
+
+Overflow Handle
+POINT OVERFLOW/UNDERFLOW
+	Passed
+Underflow Handle
+POINT OVERFLOW/UNDERFLOW
+	Passed
+Correctness Testing
+
+(1, 2) -> (3, 5) @ 2
+	Passed
+(1, 2) -> (3, 5) @ -2 - Inverted Max Distance Handling
+	Passed
+(2, 3) -> (3, 3) @ 7
+	Passed
+(3, 4) -> (4, 3) @ 2
+	Passed
+(1, 1) -> (1, 1) @ 2 - Already Solved
+	Passed
+(-1, 1) -> (-1, 1) @ 4 - Already Solved
+	Passed
+(1, 0) -> (1, 0) @ 1 - Already Solved
+	Passed
+(1, 1) -> (5, 1) @ 1 - Non-Solvable
+	Passed
+(1, 1) -> (5, 1) @ 0 - Non-Solvable
+	Passed
+(0, 0) -> (-2, -3) @ 2
+	Passed
+(1, 1) -> (2, -3) @ 2
+	Passed
+(1, 1) -> (2, -3) @ 4
+	Passed
+(1, 2) -> (3, 5) @ 2 (repeated) - Print Check (not auto scored)
+NNENE
+NNEEN
+NENNE
+NENEN
+NEENN
+ENNEN
+ENENN
+Number of paths: 7
+
+
+Final Score: 14
+

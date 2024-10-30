@@ -1,0 +1,13 @@
+#!/bin/bash
+
+##
+# Name: June
+#
+# File: Robot Tester
+# 
+# Description: Unit Test wrapper for Robot. Freshly compiles program, tests, 
+# semi-auto scoring. saves to file.
+##
+
+./robot_tests.sh > robot_test_result.txt
+echo "Test output saved to robot_test_result.txt"
