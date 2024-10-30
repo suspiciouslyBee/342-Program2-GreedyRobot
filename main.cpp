@@ -27,6 +27,8 @@ int main(int argc, char *argv[]) {
   for(int i = 1; i < 6; i++){ 
     parser << argv[i];
     parser >> array[i];
+    parser.str("");
+    parser.clear();
   }
 
   GreedyRobot::Point origin(array[2], array[3]);
@@ -36,7 +38,7 @@ int main(int argc, char *argv[]) {
 
 
   std::vector<std::string> answer;
-  answer = robot.GeneratePaths(treasure, zeroTemplate, zeroTemplate, "");
+  answer = robot.GeneratePaths(treasure, robot.Origin(), zeroTemplate, "");
   
   for(int i = 0; i < answer.size(); i++) {
     std::cout << answer.at(i) << std::endl;

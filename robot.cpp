@@ -75,6 +75,8 @@ namespace GreedyRobot {
       curr.y_++;
       combo.y_++;
       GeneratePaths(dest, curr, combo, path + "N");
+      combo.y_--;
+      curr.y_--;
     }
 
     //East : Positive X
@@ -89,6 +91,8 @@ namespace GreedyRobot {
       curr.x_++;
       combo.x_++;
       GeneratePaths(dest, curr, combo, path + "E");
+      combo.x_--;
+      curr.x_--;
     }
 
     //South : Negative Y
@@ -107,7 +111,7 @@ namespace GreedyRobot {
 
     //West : Negative X
     cardinal = WEST;
-    if(abs((difference.x_ - 1)) < abs(difference.y_) && 
+    if(abs((difference.x_ - 1)) < abs(difference.x_) && 
        combo.x_ > -MaxDistance()) {
       
       if(!combo.IsInDirection(cardinal)) {

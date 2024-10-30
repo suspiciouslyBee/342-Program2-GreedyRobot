@@ -49,7 +49,7 @@ namespace GreedyRobot {
   }
 
   void Point::operator=(const Point &rhs) {
-    SetPoint(x_, y_);
+    SetPoint(rhs.x_, rhs.y_);
   }
 
   void Point::operator-=(const Point &rhs) {
